@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @foreach($errors as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
                 </div>
             </div>
         </div>

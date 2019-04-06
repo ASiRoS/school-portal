@@ -16,3 +16,11 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('locale', 'LocalizationController@change')->name('locale.change');
+
+Route::get('/partners', 'PartnerController@index')->name('partner.index');
+
+Route::get('/news', 'NewsController@index')->name('news.index');
+
+Route::get('/announcements', 'AnnouncementController@index')->name('announcement.index');
+
+Route::get('/grades', 'GradeController@index')->name('grades.index');

@@ -2,18 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Menu;
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -21,6 +13,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $menus = Menu::published()->get();
+
+        return view('home', compact('menus'));
     }
 }

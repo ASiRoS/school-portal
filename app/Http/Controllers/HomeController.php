@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Menu;
+use App\Entities\News;
+use App\Entities\Partner;
 
 class HomeController extends Controller
 {
@@ -13,8 +15,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $menus = Menu::published()->get();
+        $news  = News::latest()->take(5)->get();
+        $partners = Partner::latest()->take(5)->get();
 
-        return view('home', compact('menus'));
+        return view('home', compact('news', 'partners'));
+    }
+
+    public function about()
+    {
+        return view('pages.about');
     }
 }

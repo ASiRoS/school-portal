@@ -13,7 +13,7 @@ class Homework extends Model
         return $this->belongsTo(Subject::class);
     }
 
-    public function task()
+    public function class()
     {
         return $this->belongsTo(ClassEntity::class);
     }

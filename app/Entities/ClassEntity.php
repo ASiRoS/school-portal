@@ -2,9 +2,16 @@
 
 namespace App\Entities;
 
-class ClassEntity
+use Illuminate\Database\Eloquent\Model;
+
+class ClassEntity extends Model
 {
     protected $table = 'classes';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['letter', 'grade'];
+
+    public function getNameAttribute()
+    {
+        return $this->letter . $this->grade;
+    }
 }

@@ -38,4 +38,23 @@ class NewsTest extends TestCase
             $response->assertDontSee($article->title);
         }
     }
+
+    /** @test */
+    function user_can_comment_news()
+    {
+        $this->login();
+
+        $article = factory(News::class)->state('published')->create();
+
+        $data = ['text' => 'Hello, I am John.'];
+
+        $response = $this->post("/news/{$article->id}/comment", $data);
+
+        $response->assertStatus(302);
+        $response->assertRedirect("/news/{$article->id}");
+
+        $response = $this->get("/news/{$article->id}");
+
+        $response->assertSeeText($data['text']);
+    }
 }

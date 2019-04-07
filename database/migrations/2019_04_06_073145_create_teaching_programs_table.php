@@ -13,7 +13,7 @@ class CreateTeachingProgramsTable extends Migration
      */
     public function up()
     {
-        Schema::create('teaching_programms', function (Blueprint $table) {
+        Schema::create('teaching_programs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('class_grade', range(1, 11));
             $table->unsignedBigInteger('subject_id');

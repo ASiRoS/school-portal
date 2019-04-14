@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <label for="subject">@lang('messages.subject')</label>
-                        <select name="subject" class="form-control" id="subject">
+                        <select name="subject_id" class="form-control" id="subject">
                             @foreach($subjects as $subject)
                                 <option value="{{ $subject->id }}" @if(old('subject_id') == $subject->id) selected @endif>{{ $subject->title }}</option>
                             @endforeach
@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="class">@lang('messages.class')</label>
-                        <select name="class" class="form-control" id="class">
+                        <select name="class_grade" class="form-control" id="class">
                             @foreach($grades as $grade)
                                 <option value="{{ $grade }}" @if(old('class') == $grade) selected @endif>{{ $grade }}</option>
                             @endforeach

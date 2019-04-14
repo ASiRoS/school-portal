@@ -22,9 +22,9 @@ class TeachingProgramController extends Controller
         return view('program.index', compact('subjects'));
     }
 
-    public function show(Subject $subject, $grade): View
+    public function show(Subject $subject): View
     {
-        $programs = TeachingProgram::where($subject, $grade)->paginate(12);
+        $programs = TeachingProgram::where(['subject_id' => $subject->id])->paginate(12);
 
         return view('program.show', compact('programs'));
     }

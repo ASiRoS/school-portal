@@ -16,6 +16,12 @@
                     <td>{{ $link->id }}</td>
                     <td><a href="{{ $link->link }}">{{ $link->title }}</a></td>
                     <td>{{ $link->description }}</td>
+                    @auth()
+                        @if(auth()->user()->isAdmin())
+                            <td><a href="{{ route('links.edit', ['link' => $link]) }}">@lang('messages.buttons.edit')</a></td>
+                            <td><a href="{{ route('links.destroy', ['link' => $link]) }}">@lang('messages.buttons.delete')</a></td>
+                        @endif
+                    @endauth
                 </tr>
             @endforeach
             </tbody>

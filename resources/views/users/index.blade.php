@@ -9,7 +9,7 @@
                 <th>@lang('messages.users.name')</th>
                 <th>@lang('messages.users.email')</th>
                 <th>@lang('messages.users.role')</th>
-                <td>@lang('messages.class')</td>
+                <th>@lang('messages.class')</th>
             </tr>
             </thead>
             <tbody>
@@ -24,6 +24,12 @@
                     @else
                         <td>@lang('messages.empty')</td>
                     @endif
+                    @auth()
+                        @if(auth()->user()->isAdmin())
+                            <td><a href="{{ route('users.edit', ['user' => $user]) }}">@lang('messages.buttons.edit')</a></td>
+                            <td><a href="{{ route('users.destroy', ['user' => $user]) }}">@lang('messages.buttons.delete')</a></td>
+                        @endif
+                    @endauth
                 </tr>
             @empty
                 <p>@lang('messages.empty')</p>

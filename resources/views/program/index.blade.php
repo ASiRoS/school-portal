@@ -11,7 +11,7 @@
             <tbody>
             @foreach($subjects as $subject)
                 <tr>
-                    <td><a href="{{ route('programs.show', ['subject' => $subject, 'grade' => $grade]) }}">{{ $subject->title }}</a></td>
+                    <td><a href="{{ route('programs.show', ['subject' => $subject]) }}">{{ $subject->title }}</a></td>
                 </tr>
             @endforeach
             </tbody>

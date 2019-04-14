@@ -14,8 +14,8 @@
                     <td>{{ $homework->subject->title }}</td>
                     <td>{{ $homework->task }}</td>
                     <td>{{ $homework->date | date('Y-m-d') }}</td>
-                    <td><a href="{{ route('homeworks.edit', ['homework' => $homework]) }}">Редактировать</a></td>
-                    <td><a href="{{ route('homeworks.destroy', ['homework' => $homework]) }}">Удалить</a></td>
+                    <td><a href="{{ route('homeworks.edit', ['homework' => $homework]) }}">@lang('messages.buttons.edit')</a></td>
+                    <td><a href="{{ route('homeworks.destroy', ['homework' => $homework]) }}">@lang('messages.buttons.delete')</a></td>
                 </tr>
             @endforeach
             </tbody>

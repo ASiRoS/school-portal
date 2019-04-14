@@ -20,6 +20,12 @@
                     @else
                         <td>В библиотеке</td>
                     @endif
+                    @auth()
+                        @if(auth()->user()->isAdmin())
+                            <td><a href="{{ route('books.edit', ['book' => $book]) }}">@lang('messages.buttons.edit')</a></td>
+                            <td><a href="{{ route('books.destroy', ['book' => $book]) }}">@lang('messages.buttons.delete')</a></td>
+                        @endif
+                    @endauth
                 </tr>
             @endforeach
             </tbody>

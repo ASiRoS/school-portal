@@ -12,6 +12,6 @@ class ClassEntity extends Model
 
     public function getNameAttribute()
     {
-        return $this->letter . $this->grade;
+        return $this->grade . $this->letter;
     }
 }

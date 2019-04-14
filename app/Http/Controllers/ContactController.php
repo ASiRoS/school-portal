@@ -4,16 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Entities\Contact;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ContactController
 {
-    public function index()
+    public function index(Request $request): View
     {
-        return view('contacts.index');
+        if(!$request->user() && !$request->user()->isAdmin()) {
+            return view('contacts.index');
+        }
+
+        $contacts = Contact::all();
+
+        return view('contacts.list', compact('contacts'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validate(Contact::validations());
 

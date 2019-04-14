@@ -18,7 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('name');
             $table->integer('is_published');
             $table->string('filename')->nullable();
-            $table->enum('is_ebook', [0, 1]);
+            $table->boolean('is_ebook');
             $table->timestamps();
         });
     }

@@ -18,10 +18,12 @@ class CreateHomeworksTable extends Migration
             $table->string('task');
             $table->unsignedBigInteger('subject_id');
             $table->unsignedBigInteger('class_id');
+            $table->unsignedBigInteger('teacher_id');
             $table->timestamps();
 
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -35,6 +37,7 @@ class CreateHomeworksTable extends Migration
         Schema::table('homeworks', function(Blueprint $table) {
             $table->dropForeign('homeworks_subject_id_foreign');
             $table->dropForeign('homeworks_class_id_foreign');
+            $table->dropForeign('homeworks_teacher_id_foreign');
         });
         Schema::dropIfExists('homeworks');
     }

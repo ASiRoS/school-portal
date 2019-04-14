@@ -8,5 +8,14 @@ class UsefulLink extends Model
 {
     use Published;
 
-    protected $fillable = ['title', 'is_published', 'description', 'link'];
+    protected $fillable = ['title', 'description', 'link', 'is_published'];
+
+    public static function validations(): array
+    {
+        return [
+            'title' => 'required',
+            'description' => 'required',
+            'link' => 'required',
+        ];
+    }
 }

@@ -46,7 +46,7 @@ class BookController extends Controller
         return $this->save($request, $book);
     }
 
-    public function delete(Book $book): RedirectResponse
+    public function destroy(Book $book): RedirectResponse
     {
         $book->delete();
 

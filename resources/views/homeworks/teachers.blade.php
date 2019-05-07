@@ -15,7 +15,7 @@
                     <td>{{ $homework->task }}</td>
                     <td>{{ $homework->date | date('Y-m-d') }}</td>
                     <td><a href="{{ route('homeworks.edit', ['homework' => $homework]) }}">@lang('messages.buttons.edit')</a></td>
-                    <td><a href="{{ route('homeworks.destroy', ['homework' => $homework]) }}">@lang('messages.buttons.delete')</a></td>
+                    <td>@include('partitions.delete', ['link' => route('homeworks.destroy', ['homework' => $homework])])</td>
                 </tr>
             @endforeach
             </tbody>

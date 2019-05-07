@@ -45,6 +45,13 @@ class UserController extends Controller
         return view('users.edit', compact('user', 'roles', 'classes'));
     }
 
+    public function destroy(User $user): RedirectResponse
+    {
+        $user->delete();
+
+        return redirect()->route('users.index');
+    }
+
     public function update(Request $request, User $user): RedirectResponse
     {
         return $this->save($request, $user, trans('messages.update.users'));
@@ -58,11 +65,14 @@ class UserController extends Controller
 
         if($isStudent) {
             $request->validate(['class_id' => 'required']);
-        } else {
-            $user->class_id = null;
         }
 
         $user->fill($data = $request->all());
+
+        if(!$isStudent) {
+            $user->class_id = null;
+        }
+
         $user->password = Hash::make($data['password']);
         $user->setRole($data['role']);
         $user->saveOrFail();

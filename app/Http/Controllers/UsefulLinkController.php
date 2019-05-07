@@ -42,7 +42,7 @@ class UsefulLinkController extends Controller
         return $this->save($request, $link);
     }
 
-    public function delete(UsefulLink $link): RedirectResponse
+    public function destroy(UsefulLink $link): RedirectResponse
     {
         $link->delete();
 

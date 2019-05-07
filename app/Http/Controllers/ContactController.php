@@ -28,7 +28,6 @@ class ContactController
         try {
             Contact::create($request->all());
         } catch (QueryException $exception) {
-            // You can check get the details of the error using `errorInfo`:
             $errorInfo = $exception->errorInfo;
 
             return redirect()->home()->withErrors($errorInfo);

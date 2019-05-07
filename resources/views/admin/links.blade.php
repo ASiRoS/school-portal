@@ -40,8 +40,8 @@
                             <a href="{{ route('links.create') }}" class="nav-link">@lang('messages.create.links')</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('subjects.index') }}" class="nav-link">@lang('messages.index.subjects')</a>
-                            <a href="{{ route('subjects.create') }}" class="nav-link">@lang('messages.create.subjects')</a>
+                            <a href="{{ route('schedules.index') }}" class="nav-link">@lang('messages.index.schedule')</a>
+                            <a href="{{ route('schedules.create') }}" class="nav-link">@lang('messages.create.schedule')</a>
                         </li>
                     </ul>
                 </div>

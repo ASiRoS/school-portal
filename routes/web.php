@@ -33,7 +33,11 @@ Route::resource('books', 'BookController');
 
 Route::resource('subjects', 'SubjectController');
 
-Route::get('/contacts', 'ContactController@index')->name('contacts.index');
-Route::post('/contacts/store', 'ContactController@store')->name('contacts.store');
+Route::resource('schedules', 'ScheduleController');
+
+Route::prefix('contacts')->group(function () {
+    Route::get('', 'ContactController@index')->name('contacts.index');
+    Route::post('store', 'ContactController@store')->name('contacts.store');
+});
 
 Route::get('/admin', 'AdminController@index')->name('admin.links');

@@ -8,7 +8,7 @@ class Contact extends Model
 {
     protected $fillable = ['name', 'phone', 'email', 'message'];
 
-    public static function validations()
+    public static function validations(): array
     {
         return [
             'name' => 'required',

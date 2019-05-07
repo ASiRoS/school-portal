@@ -19,7 +19,7 @@
                     @auth()
                         @if(auth()->user()->isAdmin())
                             <td><a href="{{ route('links.edit', ['link' => $link]) }}">@lang('messages.buttons.edit')</a></td>
-                            <td><a href="{{ route('links.destroy', ['link' => $link]) }}">@lang('messages.buttons.delete')</a></td>
+                            <td>@include('partitions.delete', ['link' => route('links.destroy', ['link' => $link])])</td>
                         @endif
                     @endauth
                 </tr>

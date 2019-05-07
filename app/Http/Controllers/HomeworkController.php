@@ -60,7 +60,7 @@ class HomeworkController extends Controller
         return $this->save($request, $homework, trans('messages.update.homeworks'));
     }
 
-    public function delete(Homework $homework)
+    public function destroy(Homework $homework)
     {
         $homework->delete();
 

@@ -22,7 +22,7 @@
                         <label for="days">@lang('messages.day')</label>
                         <select name="day" class="form-control" id="days">
                             @foreach($days as $day)
-                                <option value="{{ $day->getTitle() }}">{{ $day->getValue() }}</option>
+                                <option value="{{ $day->getValue() }}">{{ $day->getTitle() }}</option>
                             @endforeach
                         </select>
                     </div>

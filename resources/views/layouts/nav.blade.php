@@ -27,6 +27,7 @@
                     <a class="dropdown-item" href="{{ route('home.about') }}">@lang('messages.about')</a>
                     <a class="dropdown-item" href="{{ route('contacts.index') }}">@lang('messages.contacts')</a>
                     <a class="dropdown-item" href="{{ route('programs.index') }}">@lang('messages.school.program')</a>
+                    <a class="dropdown-item" href="{{ route('schedules.index') }}" >@lang('messages.index.schedule')</a>
                 </div>
             </div>
             <li class="nav-item">

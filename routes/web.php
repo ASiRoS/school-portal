@@ -1,18 +1,43 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
+
+// Костыль
+Route::get('/home', function() { return redirect('/'); });
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('home.about');
 
-Route::get('locale', 'LocalizationController@change')->name('locale.change');
+Route::get('locale/{locale}', 'LocalizationController@change')->name('locale.change');
+
+Route::resource('partners', 'PartnerController');
+
+Route::resource('news', 'NewsController');
+Route::post('/news/{article}/comment', 'NewsController@comment')->name('news.comment');
+
+Route::resource('announcements', 'AnnouncementController');
+
+Route::resource('users', 'UserController');
+
+Route::resource('grades', 'GradeController');
+
+Route::resource('homeworks', 'HomeworkController');
+Route::get('/homeworks/teacher', 'HomeworkController@teachers')->name('homeworks.teacher');
+
+Route::resource('programs', 'TeachingProgramController');
+
+Route::resource('links', 'UsefulLinkController');
+
+Route::resource('books', 'BookController');
+
+Route::resource('subjects', 'SubjectController');
+
+Route::resource('schedules', 'ScheduleController');
+
+Route::prefix('contacts')->group(function () {
+    Route::get('', 'ContactController@index')->name('contacts.index');
+    Route::post('store', 'ContactController@store')->name('contacts.store');
+});
+
+Route::get('/admin', 'AdminController@index')->name('admin.links');
